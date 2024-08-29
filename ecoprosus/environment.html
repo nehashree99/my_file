@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment Data Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Environment Data Table</h1>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Div ID</th>
+                <th>AQI</th>
+                <th>CH2O</th>
+                <th>CO</th>
+                <th>CO2</th>
+                <th>Light</th>
+                <th>NO</th>
+                <th>NO2</th>
+                <th>O3</th>
+                <th>PM1</th>
+                <th>PM2.5</th>
+                <th>PM10</th>
+                <th>Pressure</th>
+                <th>RH</th>
+                <th>SO2</th>
+                <th>Sound</th>
+                <th>Temperature</th>
+                <th>UVA</th>
+                <th>UVB</th>
+                <th>VOC</th>
+                <th>Rain Total</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const data = [
+            {"time":"2024-08-20T05:04:05.741Z","aqi":4,"ch2o":0.015,"co":0,"co2":460,"devID":"EMS005","light":354.7855,"no":51.6056,"no2":10,"o3":0.02,"pm1":3,"pm10":4,"pm2p5":4,"pressure":980.528,"rh":98,"so2":0.0018,"sound":44.4916,"temperature":27.9,"uva":0.0465,"uvb":0.2788,"voc":0,"rain_total":0.5},
+            {"time":"2024-08-18T10:52:46.719Z","aqi":4,"ch2o":0.02,"co":0.5,"co2":411,"devID":"EMS003","light":407.176,"no":0,"no2":0,"o3":0.06,"pm1":2,"pm10":4,"pm2p5":4,"pressure":980.584,"rh":83,"so2":0.029,"sound":49.4792,"temperature":32.6,"uva":0.0543,"uvb":0.326,"voc":0,"rain_total":1.2},
+            {"time":"2022-05-23T06:53:15.847Z","aqi":23,"ch2o":0.021,"co":0.5,"co2":403,"devID":"EMS002","light":436.6056,"no":56.5831,"no2":10,"o3":0.02,"pm1":17,"pm10":23,"pm2p5":20,"pressure":980.271,"rh":82,"so2":0.0271,"sound":52.2809,"temperature":29.5,"uva":0.0587,"uvb":0.3524,"voc":3,"rain_total":2.3},
+            {"time":"2024-08-20T05:04:15.383Z","aqi":14,"ch2o":2.452,"co":500,"co2":495,"devID":"EMS0018","light":157.1969,"no":58.7727,"no2":10,"o3":0,"pm1":7,"pm10":9,"pm2p5":9,"pressure":980.995,"rh":98,"so2":25.1226,"sound":25.6811,"temperature":28,"uva":0.0168,"uvb":0.101,"voc":0,"rain_total":0.8},
+            {"time":"2024-08-20T05:04:13.442Z","aqi":1,"ch2o":0,"co":0,"co2":492,"devID":"EMS0017","light":166.3138,"no":0,"no2":0,"o3":0.05,"pm1":0,"pm10":1,"pm2p5":1,"pressure":980.572,"rh":98,"so2":0.0025,"sound":26.5491,"temperature":26.9,"uva":0.0182,"uvb":0.1092,"voc":0,"rain_total":0.3},
+            {"time":"2024-08-19T06:42:46.492Z","aqi":0,"ch2o":0,"co":0,"co2":502,"devID":"EMS0016","light":176.1715,"no":30.3456,"no2":5.39,"o3":0.05,"pm1":0,"pm10":0,"pm2p5":0,"pressure":980.751,"rh":76,"so2":0.0025,"sound":27.4875,"temperature":30.8,"uva":0.0197,"uvb":0.1181,"voc":2,"rain_total":1.0},
+            {"time":"2024-08-20T05:04:17.148Z","aqi":9,"ch2o":0,"co":0.5,"co2":473,"devID":"EMS0015","light":186.8302,"no":53.8115,"no2":10,"o3":0.04,"pm1":7,"pm10":9,"pm2p5":9,"pressure":980.995,"rh":98,"so2":0.027,"sound":28.5022,"temperature":26.3,"uva":0.0213,"uvb":0.1276,"voc":0,"rain_total":1.1},
+            {"time":"2024-08-20T05:04:17.156Z","aqi":43,"ch2o":0.022,"co":0,"co2":0,"devID":"EMS0014","light":198.355,"no":0,"no2":0,"o3":0.02,"pm1":32,"pm10":43,"pm2p5":39,"pressure":980.586,"rh":98,"so2":0.0021,"sound":29.5994,"temperature":29.6,"uva":0.023,"uvb":0.138,"voc":3,"rain_total":0.9},
+            {"time":"2024-08-20T05:04:03.542Z","aqi":1,"ch2o":0,"co":0.5,"co2":424,"devID":"EMS0013","light":210.8163,"no":50.4645,"no2":10,"o3":0,"pm1":0,"pm10":1,"pm2p5":1,"pressure":980.244,"rh":98,"so2":0.025,"sound":30.7857,"temperature":28.7,"uva":0.0249,"uvb":0.1492,"voc":0,"rain_total":0.7},
+            {"time":"2024-08-20T05:04:15.793Z","aqi":1,"ch2o":0.018,"co":0.5,"co2":456,"devID":"EMS0012","light":224.2901,"no":54.8349,"no2":10,"o3":0.02,"pm1":0,"pm10":1,"pm2p5":1,"pressure":980.035,"rh":98,"so2":0.0269,"sound":32.0684,"temperature":27.2,"uva":0.0269,"uvb":0.1614,"voc":0,"rain_total":0.6},
+            {"time":"2024-08-17T07:04:50.625Z","aqi":0,"ch2o":0.017,"co":0.5,"co2":485,"devID":"EMS0011","light":235.3392,"no":41.7619,"no2":6.15,"o3":0.04,"pm1":0,"pm10":1,"pm2p5":1,"pressure":980.545,"rh":99,"so2":0.0012,"sound":33.1348,"temperature":29.6,"uva":0.0295,"uvb":0.1745,"voc":1,"rain_total":0.4}
+        ];
+
+        const headers = [
+            "Time", "Div ID", "AQI", "CH2O", "CO", "CO2", "Light", "NO", "NO2", "O3",
+            "PM1", "PM2.5", "PM10", "Pressure", "RH", "SO2", "Sound", "Temperature",
+            "UVA", "UVB", "VOC", "Rain Total"
+        ];
+
+        function renderTable(data) {
+            const tableBody = document.querySelector('#dataTable tbody');
+            tableBody.innerHTML = ''; // Clear existing table rows
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+
+                headers.forEach(header => {
+                    const cell = document.createElement('td');
+                    const key = header.toLowerCase().replace(/ /g, '_');
+                    cell.textContent = item[key] !== undefined ? item[key] : 'N/A';
+                    row.appendChild(cell);
+                });
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        renderTable(data);
+    </script>
+</body>
+</html>

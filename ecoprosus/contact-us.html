@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="company-profile.html">Company Profile</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li class="right"><a href="login.html">Login</a></li>
+            <li class="right"><a href="logout.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Contact Us</h1>
+        <p>Eager to hear from you. M/S ECOPROSUS INDIA PRIVATE LIMITED
+            ADDRESS: #27/1, 4TH MAIN, 5TH CROSS, JAYAMAHAL<br> BENGALURU 560093
+            EMAIL: INFO@ECOPROSUS.AI <br> MOBILE: +91 98999 77815</p>
+        
+            
+            
+       
+        <div class="contact-info">
+            <p><strong>Address:</strong></p>
+            <p>#255, 3rd Floor, 1st cross, Armane Nagar, Ganganagar, Bengaluru 560032</p>
+            <p>(Landmark: Above UCO Bank)</p>
+            <p><strong>Email:</strong> info@ecoprosus.ai</p>
+            <p><strong>Phone:</strong> +91 90196 19338</p>
+        </div>
+
+        
+
+       
+        
+    <footer>
+        <p>&copy; Ecoprosus. All rights reserved.</p>
+    </footer>
+
+    <script>
+        
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            
+            var popup = document.getElementById('popupMessage');
+            popup.style.display = 'block';
+
+            
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
